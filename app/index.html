@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CWH</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
+    <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css"/>
+    <link rel="stylesheet" href="assets/app.css"/>
+
+    <style type="text/css">
+        /**
+         * Hide when Angular is not yet loaded and initialized
+         */
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+          display: none !important;
+        }
+    </style>
+
+  </head>
+
+  <body ng-app="starterApp" layout="row" ng-controller="UserController as ul" ng-cloak >
+
+  <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2"
+                md-component-id="left"
+                md-is-locked-open="$mdMedia('gt-sm')" role="navigation">
+
+    <md-toolbar class="md-whiteframe-z1" ng-controller="NavCtrl">
+      <h1>Menu</h1>
+    </md-toolbar>
+
+    <md-list>
+      <md-list-item>
+          <md-button ng-class="navClass('printer')" href='#/printer'>
+            <md-icon md-svg-icon="icon" class="avatar"></md-icon>
+            Printer
+          </md-button>
+      </md-list-item>
+
+      <md-list-item>
+          <md-button ng-class="navClass('jobs')" href='#/jobs'>
+            <md-icon md-svg-icon="icon" class="avatar"></md-icon>
+            Jobs
+          </md-button>
+      </md-list-item>
+
+      <md-list-item>
+          <md-button ng-class="navClass('controls')" href='#/controls' ng-click="close()">
+            <md-icon md-svg-icon="icon" class="avatar"></md-icon>
+            Controls
+          </md-button>
+      </md-list-item>
+
+      <md-list-item>
+          <md-button ng-class="navClass('settings')" href='#/settings'>
+            <md-icon md-svg-icon="icon" class="avatar"></md-icon>
+            Settings
+          </md-button>
+      </md-list-item>
+
+     <!--  <md-list-item ng-repeat="it in ul.users">
+          <md-button ng-click="ul.selectUser(it)" ng-class="{'selected' : it === ul.selected }">
+            <md-icon md-svg-icon="{{it.avatar}}" class="avatar"></md-icon>
+            {{it.name}}
+          </md-button>
+      </md-list-item> -->
+
+
+
+    </md-list>
+
+  </md-sidenav>
+
+
+  <md-content flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
+
+    <md-toolbar layout="row" class="md-whiteframe-z1">
+      <md-button class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show Menu">
+        <md-icon md-svg-icon="menu" ></md-icon>
+      </md-button>
+      <h1>Resin Material</h1>
+    </md-toolbar>
+
+    <md-content flex id="content" layout="column" md-scroll-y>
+        <!-- <div layout="row" layout-align="start center">
+          <div><md-icon md-svg-icon="{{ul.selected.avatar}}" class="avatar"></md-icon></div>
+          <div><h2>{{ul.selected.name}}</h2></div>
+        </div> -->
+       <!--  <md-icon md-svg-icon="{{ul.selected.avatar}}" class="avatar"></md-icon>
+        <h2>{{ul.selected.name}}</h2> -->
+        <!-- <p>{{ul.selected.content}}</p> -->
+
+        <md-button class="contact" md-no-ink ng-click="ul.showContactOptions($event)" aria-label="Contact User">
+          <md-tooltip>Contact {{ ul.selected.name }}</md-tooltip>
+          <md-icon md-svg-icon="share"></md-icon>
+        </md-button>
+      
+        <md-content ng-view> </md-content>
+
+      </md-content>
+
+    
+
+  </md-content>
+
+    <script src="./bower_components/angular/angular.js"></script>
+    <script src="./bower_components/angular-animate/angular-animate.js"></script>
+    <script src="./bower_components/angular-aria/angular-aria.js"></script>
+    <script type="text/javascript" src="./bower_components/angular-material/angular-material.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.6.0/angular-material-icons.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/SVG-Morpheus/0.1.8/svg-morpheus.js"></script>
+
+    <script type="text/javascript" src="./bower_components/ng-file-upload-bower-9.1.2/ng-file-upload-shim.min.js"></script>
+    <script type="text/javascript" src="./bower_components/ng-file-upload-bower-9.1.2/ng-file-upload.min.js"></script>
+
+    <script src="./src/users/Users.js"></script>
+    <script src="./src/users/UserController.js"></script>
+    <script src="./src/users/UserService.js"></script>
+  
+    <script src="./js/starterapp.js"></script>
+
+   
+
+  </body>
+</html>
